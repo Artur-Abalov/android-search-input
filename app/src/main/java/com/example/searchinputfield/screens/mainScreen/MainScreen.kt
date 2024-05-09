@@ -2,6 +2,10 @@ package com.example.searchinputfield.screens.mainScreen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.searchinputfield.components.SearchInputWithButton
@@ -37,4 +41,7 @@ private fun MainScreenView(
 @Preview
 @Composable
 private fun MainScreenPreview() {
+    var value by remember{ mutableStateOf("456") }
+
+    MainScreenView(value = value, onInputChange = {newVal -> value = newVal}, onSubmit = {})
 }
